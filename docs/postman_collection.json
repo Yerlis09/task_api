@@ -1,0 +1,59 @@
+{
+  "info": {
+    "name": "Task API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List tasks",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/tasks/"
+      }
+    },
+    {
+      "name": "Create task",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Buy groceries\",\n  \"description\": \"Milk, eggs, coffee\",\n  \"status\": \"pending\",\n  \"due_date\": \"2030-02-25T18:00:00-05:00\",\n  \"created_by_name\": \"Yerlys\"\n}"
+        },
+        "url": "{{base_url}}/api/tasks/"
+      }
+    },
+    {
+      "name": "Update task (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"description\": \"Milk, eggs, coffee, bread\"\n}" },
+        "url": "{{base_url}}/api/tasks/{{task_id}}/"
+      }
+    },
+    {
+      "name": "Change status",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"completed\"\n}" },
+        "url": "{{base_url}}/api/tasks/{{task_id}}/status/"
+      }
+    },
+    {
+      "name": "Upcoming tasks",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/tasks/upcoming/?within_days=7"
+      }
+    },
+    {
+      "name": "Soft delete task",
+      "request": {
+        "method": "DELETE",
+        "url": "{{base_url}}/api/tasks/{{task_id}}/"
+      }
+    }
+  ]
+}
