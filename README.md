@@ -57,7 +57,7 @@ Campos principales:
 ### 1) Clonar y entrar al proyecto
 
 ```bash
-git clone <TU_REPO>
+git clone <https://github.com/Yerlis09/task_api.git>
 cd task_api
 ```
 
